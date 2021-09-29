@@ -79,8 +79,8 @@
 						<h6><i class="icon-envelope"></i> CONTACT INFO</h6>
 						<ul class="list-unstyled">
 							<li><b>Address:</b> 4468 Rue Wellington, H4G 1W5  <br /> 1165 Boulevard Lebourgneuf, G2K 2C9</li>
-							<li><b>Phone:</b> 1-800-565-2390</li>
-							<li><b>Email:</b> <a href="mailto:support@yourname.com">support@yourname.com</a></li>
+							<li><b>Phone:</b> (418) 555-1234</li>
+							<li><b>Email:</b> <a href="mailto:info@codeboxx.biz">info@codeboxx.biz</a></li>
 						</ul>
 					</div>
 
@@ -155,7 +155,7 @@
 									Add .external for an external link!
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
-									<li class="active"><!-- HOME -->
+									<li><!-- HOME -->
 										<a href="/Smarty/HTML_BS4/Rocket Elevator.html#home-nav">
 											HOME
 										</a>
@@ -195,132 +195,143 @@
 				<!-- /Top Nav -->
 
 			</div>
-            <div id="centre" id="flex-containerr">
+            <div class="container">
                 <h2>Submission Page</h2><br>
                 <form>
-                    <div>
-                        <label>Type of the building:</label>
-                        <select id="building-type" onchange="select_building()">
-                          <option id="select" value="select">--Select--</option>
-                          <option id="residential" value="residential">Residential</option>
-                          <option id="commercial" value="commercial">Commercial</option>
-                          <option id="corporate" value="corporate">Corporate</option>
-                          <option id="hybrid" value="hybrid">Hybrid</option>
-                        </select­­­>
-                    </div>
-                    <div >
-                        <p>Select your forfait</p>
-                        <label for="standard">Standard</label>
-                        <input type="radio" id="standard" name="forfait">
-                        <label for="premium">Premium</label>
-                        <input type="radio" id="premium" name="forfait">
-                        <label for="excelium">Excelium</label>
-                        <input type="radio" id="excelium" name="forfait">
-                    </div>
-                    <br><br>
-                    <div id="list_residential">
-                        <div id="number-of-apartments">
-                            <label>Number of Apartment:</label>
-                            <input type="number" min="0">
+                    <div class="row">
+                        <div class="col-2">
+                            <div>
+                                <label>Type of the building:</label>
+                                <select id="building-type" onchange="select_building(this.value)">
+                                    <option id="select" value="select">--Select--</option>
+                                    <option id="residential" value="residential">Residential</option>
+                                    <option id="commercial" value="commercial">Commercial</option>
+                                    <option id="corporate" value="corporate">Corporate</option>
+                                    <option id="hybrid" value="hybrid">Hybrid</option>
+                                </select> 
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div>
+                                <p>Select your forfait</p>
+                                <label for="standard">Standard</label>
+                                <input class="inpuut" type="radio" id="standard" name="forfait" oninput="priceSelector()">
+                                <label for="premium">Premium</label>
+                                <input type="radio" id="premium" name="forfait" oninput="priceSelector()">
+                                <label for="excelium">Excelium</label>
+                                <input type="radio" id="excelium" name="forfait" oninput="priceSelector()">
+                            </div>
                         </div>
                         <div>
-                            <label>Number of Floors in the Building:</label>
-                            <input id="number-of-floors" type="number" min="0">
-                        </div>
-                        <div id="number-of-basements">
-                            <label>Number of Basements in the Building:</label>
-                            <input type="number" min="0">
+                            <div id="list_residential" class="col">
+                                <div id="number-of-apartments">
+                                    <label>Number of Apartment:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateResidentialPrice()" id="number-app">
+                                </div>
+                                <div>
+                                    <label>Number of Floors in the Building:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateResidentialPrice()" id="number-floor">
+                                </div>
+                                <div id="number-of-basements">
+                                    <label>Number of Basements in the Building:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateResidentialPrice()" id="number-basement">
+                                </div>
+                            </div>
+                            <div id="list_commercial" class="col">
+                                <div id="number-of-floors">
+                                    <label>Number of Floor:</label>
+                                    <input class="inpuut" type="number" min="0">
+                                </div>
+                                <div id="number-of-companies">
+                                    <label>Number of Distinct Businesses:</label>
+                                    <input class="inpuut" type="number" min="0">
+                                </div>
+                                <div id="number-of-basements">
+                                    <label>Number of Basement:</label>
+                                    <input class="inpuut" type="number" min="0">
+                                </div>
+                                <div id="number-of-parking-spots">
+                                    <label>Number of Parking Spaces Available:</label>
+                                    <input class="inpuut" type="number" min="0">
+                                </div>
+                                <div id="number-of-elevators">
+                                    <label>Number of Elevator to Deploy:</label>
+                                    <input class="inpuut" id="nbElevatorCommercial" type="number" min="1" oninput="calculateComercialPrice()">
+                                </div>
+                            </div>
+                            <div id="list_corporate" class="col">
+                                <div id="number-of-floors">
+                                    <label>Number of Floor:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateCorporatePrice()" id="nbFloorC">
+                                </div>
+                                <div id="number-of-basements">
+                                    <label>Number of Basement:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateCorporatePrice()" id="nbBasementC">
+                                </div>
+                                <div id="number-of-parking-spots">
+                                    <label>Number of Parking Spaces Available:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateCorporatePrice()" id="nbParking">
+                                </div>
+                                <div id="number-of-corporations">
+                                    <label>Number of Separate Tenant Companies:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateCorporatePrice()" id="nbCorporateC">
+                                </div>
+                                <div id="maximum-occupancy">
+                                    <label>Maximum Number of Occupants per Floor:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateCorporatePrice()" id="maxOccupC">
+                                </div>
+                            </div>
+                            <div id="list_hybrid" class="col">
+                                <div id="number-of-floors">
+                                    <label>Number of Floor in the Building:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateHybridPrice()" id="nbFloorH">
+                                </div>
+                                <div id="number-of-basements">
+                                    <label>Number of Basement:</label>
+                                    <input class="inpuut" type="number" min="0"  oninput="calculateHybridPrice()" id="nbBasementH">
+                                </div>
+                                <div id="number-of-companies">
+                                    <label>Number of Distinct Businesses:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateHybridPrice()" id="nbBusinessH">
+                                </div>
+                                <div id="number-of-parking-spots">
+                                    <label>Number of Parking Spaces Available:</label>
+                                    <input class="inpuut" type="number" min="0" oninput="calculateHybridPrice()" id="nbParkingH">
+                                </div>
+                                <div id= "maximum-occupancy">
+                                    <label>Maximum Number of Occupants per Floor:</label>
+                                <input class="inpuut" type="number" min="0" oninput="calculateHybridPrice()" id="maxOccupH">
+                                </div>
+                                <div id="business-hours">
+                                    <label>Number of Hours of Activity of the Building</label>
+                                    <input class="inpuut" type="number" min="1" oninput="calculateHybridPrice()" max="24">
+                                </div>
+                            </div>
+                            <div class="col" id="elevator-amount" class="">
+                                <label>number-of-elevators</label>
+                                <input class="inpuut" type="number" readonly id="total-elevator">
+                            </div>          
+                            <div  class="col"id="elevator-unit-price">
+                                <label>Elevator Unit Price</label>
+                                <input class="inpuut" type="number" readonly id="unitPrice">
+                            </div>
+                            <div  class="col"id="elevator-total-price">
+                                <label>Total Elevator Price</label>
+                                <input class="inpuut" type="number" readonly id="totalElevPrice">
+                            </div>   
+                            <div  class="col"id="installation-fees">
+                                <label>Installation Fees</label>
+                                <input class="inpuut" type="number" readonly id="totalFees">
+                            </div>  
+                            <div  class="col"id="final-price">
+                                <label>Final price</label>
+                                <input class="inpuut" type="number" readonly id="totalPrice">
+                            </div>
+                            <div><br>
+                                <button id="buttonQ"type="button" id="refresh" onclick="priceSelector()">Calculate</button>
+                            </div>
                         </div>
                     </div>
-                    <div id="list_commercial">
-                        <div id="number-of-floors">
-                            <label>Number of Floor:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-companies">
-                            <label>Number of Distinct Businesses:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-basements">
-                            <label>Number of Basement:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-parking-spots">
-                            <label>Number of Parking Spaces Available:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-elevators">
-                            <label>Number of Elevator Shafts to Deploy:</label>
-                            <input type="number" min="0">
-                    </div>
-                    <div id="list_corporate">
-                        <div id="number-of-floors">
-                            <label>Number of Separate Tenant Companies:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-basements">
-                            <label>Number of Basement:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-parking-spots">
-                            <label>Number of Parking Spaces Available:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-corporations">
-                            <label>Number of Separate Tenant Companies:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="maximum-occupancy">
-                            <label>Maximum Number of Occupants per Floor:</label>
-                            <input type="number" min="0">
-                        </div>
-                    </div>
-                    <div id="list_hybrid">
-                        <div id="number-of-floors">
-                            <label>Number of Floor in the Building:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-basements">
-                            <label>Number of Basement:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-companies">
-                            <label>Number of Distinct Businesses:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id="number-of-parking-spots">
-                            <label>Number of Parking Spaces Available:</label>
-                            <input type="number" min="0">
-                        </div>
-                        <div id= "maximum-occupancy">
-                            <label>Maximum Number of Occupants per Floor:</label>
-                        <input type="number" min="0">
-                        </div>
-                        <div id="business-hours">
-                            <label>Number of Hours of Activity of the Building</label>
-                            <input type="number" min="1" max="24">
-                        </div>
-                    </div>  
-                    <div id="elevator-amount">
-                        <label>number-of-elevators</label>
-                        <input type="number" readonly«>
-                    </div>          
-                    <div id="elevator-unit-price">
-                        <label>Elevator Unit Price</label>
-                        <input type="number" readonly>
-                    </div>
-                    <div id="elevator-total-price">
-                        <label>Total Elevator Price</label>
-                        <input type="number" readonly>
-                    </div>   
-                    <div id="installation-fees">
-                        <label>Installation Fees</label>
-                        <input type="number" readonly>
-                    </div>  
-                    <div id="final-price">
-                        <label>Final price</label>
-                        <input type="number" readonly>
-                    </div>   
                 </form>
             </div>
             
@@ -404,7 +415,7 @@
 											</div>
 											<div class="col-md-4">
 												<label for="contact:phone">Phone</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+												<input type="number" value="" class="form-control" name="contact[phone]" id="contact:phone">
 											</div>
 									</div>
 									<div class="row">
