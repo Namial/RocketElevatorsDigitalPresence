@@ -4,10 +4,21 @@ document.getElementById("list_hybrid").style.display = "none";
 document.getElementById("list_corporate").style.display = "none";
 
 function select_building(list) {
+    document.getElementById("total-elevator").value = "";
+    document.getElementById("unitPrice").value = "";
+    document.getElementById("totalElevPrice").value = "";
+    document.getElementById("totalFees").value = "";
+    document.getElementById("totalPrice").value = "";
     document.getElementById("list_residential").style.display = "none";
     document.getElementById("list_commercial").style.display = "none";
     document.getElementById("list_hybrid").style.display = "none";
     document.getElementById("list_corporate").style.display = "none";
+    var radioStand = document.getElementById("standard");
+    var radioPremi = document.getElementById("premium");
+    var radioExcel = document.getElementById("excelium");
+    radioStand.checked = false;
+    radioPremi.checked = false;
+    radioExcel.checked = false;
     switch(list){
         case "residential" :
             document.getElementById("list_residential").style.display = "block";
