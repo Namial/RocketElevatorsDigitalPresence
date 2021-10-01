@@ -59,7 +59,7 @@
 				
 				<div class="row">
 
-					<div id="home-nav" class="col-md-4">
+					<div id="home" class="col-md-4">
 						<h6><i class="icon-heart"></i> WHY ROCKET ELEVATOR?</h6>
 						<p>Rocket Elevator will do all is on power to make the client satisfied</p>
 					</div>
@@ -135,7 +135,7 @@
 						</button>
 
 						<!-- Logo -->
-						<a class="logo float-left scrollTo" href="#home-nav">
+						<a class="logo float-left scrollTo" href="#home">
 							<img src="/assets/images/Rocket_Elevator_Assets/R2.png" alt="" />
 						</a>
 
@@ -1147,7 +1147,7 @@
 
 
 			<!-- Clients -->
-			<section id="clients-nav" class="alternate">
+			<section id="clients" class="alternate">
 				<div class="container">
 
 					<div class="heading-title heading-dotted text-center">
@@ -1294,47 +1294,59 @@
 									<div class="row">
 											<div class="col-md-4">
 												<label for="contact:name">Full Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+												<input required type="text" value="" class="form-control" name="contact[name][required]" id="name">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:email">E-mail Address *</label>
-												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+												<input required type="email" value="" class="form-control" name="contact[email][required]" id="email">
 											</div>
 											<div class="col-md-4">
 												<label for="contact:phone">Phone</label>
-												<input type="number" value="" class="form-control" name="contact[phone]" id="contact:phone">
+												<input type="number" value="" class="form-control" name="contact[phone]" id="phone">
 											</div>
 									</div>
 									<div class="row">
 											<div class="col-md-8">
-												<label for="contact:subject">Projects *</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+												<label for="contact:subject">Compagny Name *</label>
+												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="compagny_name">
 											</div>
 											<div class="col-md-4">
-												<label for="contact_department">Department</label>
-												<select class="form-control pointer" name="contact[department]">
+												<label for="contact_department">Type of Project *</label>
+												<select class="form-control pointer" name="contact[department]" id="project_name">
 													<option value="">--- Select ---</option>
-													<option value="Marketing">Marketing</option>
-													<option value="Webdesign">Webdesign</option>
-													<option value="Architecture">Architecture</option>
+													<option value="Residential">Residential</option>
+													<option value="Corporate">Corporate</option>
+													<option value="Commercial">Commercial</option>
 												</select>
 											</div>
-									</div>
+												<div class="col-md-4">
+													<label for="contact:subject">Project Description *</label>
+													<input required type="text" value="" class="form-control" name="contact[subject][required]" id="project_description">
+												</div>
+												<div class="col-md-4">
+													<label for="contact:subject">Department *</label>
+													<input required type="text" value="" class="form-control" name="contact[subject][required]" id="department">
+												</div>
+									
 									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:message">Message *</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+											<div class="col-md-4">
+												<label for="contact:subject">Department *</label>
+												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="department">
 											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<label for="contact:message">Message *</label>
+													<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="message"></textarea>
+												</div>
+										</div>		
 									</div>
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:attachment">File Attachment</label>
+									<div class="col-md-12">
+										<label for="contact:attachment">File Attachment</label>
 
-												<!-- custom file upload -->
-												<input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
-												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
+										<!-- custom file upload -->
+										<input class="custom-file-upload" type="file" id="attachment" name="contact[attachment]"  data-btn-text="Select a File" />
+										<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
 
-											</div>
 									</div>
 
 								</fieldset>
@@ -1377,6 +1389,7 @@
 
 							<p>
 								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 4468 Wellington St Suite 204, Verdun, Québec H4G 1W5</span>
+								<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> 418-725 Boulevard Lebourgneuf, Québec, QC G2J 0C4, Canada</span>
 								<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> <a href="tel:(418) 555-1234">(418) 555-1234</a></span>
 								<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto: info@codeboxx.biz"> info@codeboxx.biz</a></span>
 							</p>
