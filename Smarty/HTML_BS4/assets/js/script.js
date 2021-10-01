@@ -44,7 +44,7 @@ function calculateResidentialPrice() {
     let nbElevR = Math.ceil(moyenneFloorR/6);
         console.log(nbElevR);
     let nbColumnR = Math.ceil((nbFloorR/20));
-    console.log("nbcolumn"+" " +nbColumnR)
+    console.log("nbcolumn"+" " + nbColumnR)
     if(nbColumnR == 2 ) {
         nbElevR *= 2;
     }else if(nbColumnR == 3){
@@ -53,6 +53,12 @@ function calculateResidentialPrice() {
         nbElevR *= 4;
     }else if(nbColumnR == 5){
         nbElevR *= 5;
+    }else if(nbColumnR == 6){
+        nbElevR *= 6;
+    }else if(nbColumnR == 7){
+        nbElevR *=7;
+    }else if(nbColumnR == 8){
+        nbElevR *=8;
     }
     document.getElementById("total-elevator").value = nbElevR;
     
@@ -94,27 +100,32 @@ function priceSelector() {
     let price = 0;
     let fees = 0;
     let feesPerElev = 0;
-    var radioStand = document.getElementById("standard");
-    var radioPremi = document.getElementById("premium");
-    var radioExcel = document.getElementById("excelium");
+    let radioStand = document.getElementById("standard");
+    let radioPremi = document.getElementById("premium");
+    let radioExcel = document.getElementById("excelium");
     if(radioStand.checked == true){
         price = 7565; 
         fees = parseFloat(price) * 0.10;
         feesPerElev = parseFloat(fees) * parseFloat(document.getElementById("total-elevator").value);
     }else if(radioPremi.checked == true){
         price = 12345;
-        fees = parseFloat(price) * 0.13;
+        fees = price * 0.13;
         feesPerElev = parseFloat(fees) * parseFloat(document.getElementById("total-elevator").value);
     }else if(radioExcel.checked == true){
         price = 15400;
         fees = parseFloat(price) * 0.16;
         feesPerElev = parseFloat(fees) * parseFloat(document.getElementById("total-elevator").value);
     }
+    console.log("feesPerElevator"+" "+ feesPerElev)
+    console.log("fees"+" "+fees)
     document.getElementById("unitPrice").value = parseFloat(price);
     document.getElementById("totalElevPrice").value = parseFloat(price) * parseFloat(document.getElementById("total-elevator").value);
-    document.getElementById("totalFees").value = parseFloat(feesPerElev) * parseFloat(document.getElementById("total-elevator").value);
-    document.getElementById("totalPrice").value = parseFloat(price) + parseFloat(feesPerElev);
+    document.getElementById("totalFees").value = feesPerElev 
+    console.log("feesperElev2"+" "+feesPerElev)
+    document.getElementById("totalPrice").value = parseFloat(document.getElementById("totalFees").value) + parseFloat(document.getElementById("totalElevPrice").value);
+    console.log("feesperElev3"+" "+feesPerElev)
 }
+
 
 
 
